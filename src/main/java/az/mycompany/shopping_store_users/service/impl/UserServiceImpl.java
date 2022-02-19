@@ -85,6 +85,12 @@ public class UserServiceImpl implements UserService {
         return entityToDto(entity);
     }
 
+    @Override
+    public UserDto getByEmail(String email) {
+        UserEntity userEntity=repository.findByEmail(email);
+        return entityToDto(userEntity);
+    }
+
     private UserDto entityToDto(UserEntity entity) {
         return UserDto.builder()
                 .id(entity.getId())

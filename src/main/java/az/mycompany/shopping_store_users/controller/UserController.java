@@ -26,6 +26,10 @@ public class UserController {
           log.info("getByUsername method started  "+username);
         return ResponseEntity.ok(service.getByUsername(username));
     }
+    @GetMapping("/{email}")
+    public ResponseEntity<UserDto>getByEmail(@PathVariable("email") String email ){
+       return ResponseEntity.ok(service.getByEmail(email));
+    }
 
     @PostMapping
     public ResponseEntity<UserDto>add(@RequestBody UserDto dto){
